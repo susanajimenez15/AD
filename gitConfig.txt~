@@ -1,0 +1,79 @@
+    1  java version
+    2  java --version
+    3  java -version
+    4  sudo apt-get update
+    5  sudo apt-get install oracle-java8-installer
+    6  java -version
+    7  cd Documentos/
+    8  ls
+    9  cd ..
+   10  cd mati
+   11  ls
+   12  cd android-studio/
+   13  ls
+   14  cd bin/
+   15  ls
+   16  sh studio.sh
+   17  sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6
+   18  sh studio.sh
+   19  sudo apt-get update
+   20  notepad 
+   21  cat diary.txt
+   22  cat
+   23  java -version
+   24  ls
+   25  cd D
+   26  cd Documentos/
+   27  ls
+   28  cd AD/
+   29  git init
+   30  sudo apt-get install git
+   31  git init
+   32  git add *
+   33  git commit
+   34  git config --global user.email "dam.sjimenez@institutoserpis.org"
+   35  gir config --global user.name "susanajimenez15"
+   36  git config --global user.name "susanajimenez15"
+   37  git commit
+   38  git push
+   39  git push -u origin master
+   40  git init
+   41  git add *
+   42  git commit -m "Acceso a datos"
+   43  git status
+   44  git config --global user.email "dam.sjimenez@institutoserpis.org"[B
+   45  git config --global user.email "dam.sjimenez@institutoserpis.org"
+   46  gir config --global user.name "susanajimenez15"
+   47  git config --global user.name "susanajimenez15"
+   48  git remote add origin https://github.com/susanajimenez15/AD.git
+   49  git push -u origin master
+   50  git status
+   51  cat diarioAD.txt 
+   52  2016/08/13
+   53  Instal·lació Monodevelop
+   54  -Synaptic 
+   55  *Monodevelop
+   56  *Monodevelop-database
+   57  "la libreria no la encuentra, hay que ir a synaptic buscar, libmysql6.4-cil y buscar la ruta,
+l.Data-6.4/MySql.Data.dll, desde monodevelop añadir en referencias
+odevelop-nunit
+odevelop-versioncontrol
+odoc-browser
+odoc-gtk2.0-manual
+odoc-mysql-manual
+
+Synaptic git / terminal -> sudo apt-get install git
+
+Bitnami-lamp, servidor de base de dades, version 5.6.25
+"https://bitnami.com/stack/lamp"
+
+n
+   58  gedit 
+   59  git status
+   60  git commit
+   61  git commit -m "Diario de Clases AD"
+   62  git add *
+   63  git status
+   64  git commit -m "Diario de Clases AD"
+   65  git push
+   66  history >> gitConfig.txt
