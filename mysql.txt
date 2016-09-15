@@ -1,0 +1,9 @@
+CREATE TABLE categoria(
+    id bigint AUTO_INCREMENT PRIMARY key,
+    nombre varchar(50) not null UNIQUE
+    );
+
+insert INTO categoria (nombre) VALUES ('categoría 1');
+insert INTO categoria (nombre) VALUES ('categoría 2');
+insert INTO categoria (nombre) VALUES ('categoría 3');
+
