@@ -1,4 +1,4 @@
-13/08/2016
+2016/08/13
 
 Instalacion Monodevelop
 	-Synaptic 
@@ -17,16 +17,5 @@ Synaptic git / terminal -> sudo apt-get install git
 
 Bitnami-lamp, servidor de base de dades, version 5.6.25
 	"https://bitnami.com/stack/lamp"
-
-
 		
-15/08/2016
 
--Metodo "creatcomand" permite devolver un dbcommand, tiene una propiedad llamada comandText " insert into..." i parametros
--Los comandos los podemos ejecutar con "ExecuteReader"(select..) si no son selectes ejecutaremos "ExecuteNonQuery"(insert, update,delete)
-Hacer menu que conecte con la base de datos:
-	0. Salir
-	1. Nuevo
-	2. Editar
-	3. Eliminar
-	4. Listar todos.
