@@ -7,16 +7,16 @@ namespace PDbPrueba
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Probando acceso a dbprueba");
-			MySqlConnection mySqlConnection = new MySqlConnection("Database=dbprueba; User Id=root; Password=sistemas");
+			//Console.WriteLine ("Probando acceso a dbprueba");
+			//MySqlConnection mySqlConnection = new MySqlConnection("Database=dbprueba; User Id=root; Password=sistemas");
 
-			mySqlConnection.Open ();
+			//mySqlConnection.Open ();
 			//operaciones
 
-			mySqlConnection.CreateCommand ();
+			//mySqlConnection.CreateCommand ();
 
-			Console.Write ("Selecciona una opcion: ");
-			Console.Write ("0. Salir " + "\n" + "1. Nuevo " + "\n" + "2. Editar " + "\n" + "3. Eliminar " + "\n" + "4. Listar todos " + "\n");
+			Console.WriteLine ("Selecciona una opcion: ");
+			Console.WriteLine ("0. Salir " + "\n" + "1. Nuevo " + "\n" + "2. Editar " + "\n" + "3. Eliminar " + "\n" + "4. Listar todos " + "\n");
 
 			switch (Console.Read ()) 
 			{
@@ -37,7 +37,7 @@ namespace PDbPrueba
 				break;
 			}
 
-			mySqlConnection.Close ();
+			//mySqlConnection.Close ();
 
 		}
 	}

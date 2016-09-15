@@ -1,8 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PDbPrueba/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../PCategoria.cs">
     <Files>
-      <File FileName="PDbPrueba/Program.cs" Line="11" Column="60" />
+      <File FileName="../PCategoria.cs" Line="19" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
