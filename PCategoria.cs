@@ -1,5 +1,6 @@
-using System;
 using MySql.Data.MySqlClient;
+using System;
+using System.Data;
 
 namespace PDbPrueba
 {
@@ -7,21 +8,38 @@ namespace PDbPrueba
 	{
 		public static void Main (string[] args)
 		{
-			//Console.WriteLine ("Probando acceso a dbprueba");
-			//MySqlConnection mySqlConnection = new MySqlConnection("Database=dbprueba; User Id=root; Password=sistemas");
+			Console.WriteLine ("CONECTANDOOOOOOOOOOOOO");
+			IDbConnection dbConnection = new MySqlConnection ("Database=dbprueba; User Id=root; Password=sistemas");
 
-			//mySqlConnection.Open ();
+			dbConnection.Open ();
 			//operaciones
+			dbConnection.CreateCommand ();
+
+			IDbCommand dbCommand = dbConnection.CreateCommand ();
+			dbCommand.CommandText = "insert into categoria (nombre) values (@nombre)";
+
+			//Creamos el parametro a insertar, creamos la tabla categoria 4 e insertamos el parametro en la tabla
+			//Más adelante crearemos un metodo para hacer eso más fluido
+			IDbDataParameter dbDataParameter = dbCommand.CreateParameter ();
+			dbDataParameter.ParameterName = "nombre";
+			//TIENE QUE COINCIDIR EL VALOR CON EL PARAMETRO PARA QUE ENCUENTRE BIEN EL VALOR
+			dbDataParameter.Value = "categoria 4";
+			dbCommand.Parameters.Add (dbDataParameter);
+			dbCommand.ExecuteNonQuery ();
 
 			//mySqlConnection.CreateCommand ();
+			/*
+			do {
+				Console.WriteLine ("Selecciona una opcion: ");
+				Console.WriteLine ("0. Salir " + "\n" + "1. Nuevo " + "\n" + "2. Editar " + "\n" + "3. Eliminar " + "\n" + "4. Listar todos " + "\n");
+			} while(Console.Read < 0 || Console.Read > 4);
 
-			Console.WriteLine ("Selecciona una opcion: ");
-			Console.WriteLine ("0. Salir " + "\n" + "1. Nuevo " + "\n" + "2. Editar " + "\n" + "3. Eliminar " + "\n" + "4. Listar todos " + "\n");
 
-			switch (Console.Read ()) 
-			{
+			switch (Console.Read ()) {
 			case '0':
 				Console.Write ("Adios");
+				conexion.Close ();
+				Environment.Exit (0);
 				break;
 			case '1':
 				Console.Write ("Nuevo");
@@ -36,8 +54,8 @@ namespace PDbPrueba
 				Console.Write ("Listar todos");
 				break;
 			}
-
-			//mySqlConnection.Close ();
+*/
+			dbConnection.Close ();
 
 		}
 	}
