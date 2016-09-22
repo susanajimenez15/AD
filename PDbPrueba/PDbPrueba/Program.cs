@@ -11,102 +11,113 @@ namespace PDbPrueba
 
 			Boolean salir = false;
 
-			Console.WriteLine ("CONECTANDOOOOOOOOOOOOO");
+			Console.WriteLine ("Conectando con la base de datos");
 			IDbConnection dbConnection = new MySqlConnection ("Database=dbprueba; User Id=root; Password=sistemas");
 
 			dbConnection.Open ();
 
+			String sid;
+			int id;
+
 			IDbCommand crearNuevo = dbConnection.CreateCommand ();
 			IDataParameter dataparametername = crearNuevo.CreateParameter ();
 			IDataParameter dataparameterid = crearNuevo.CreateParameter ();
-			
 
-			//operaciones
-			/*
 			dbConnection.CreateCommand ();
 
-			IDbCommand dbCommand = dbConnection.CreateCommand ();
-			dbCommand.CommandText = "insert into categoria (nombre) values (@nombre)";
-
-			//Creamos el parametro a insertar, creamos la tabla categoria 4 e insertamos el parametro en la tabla
-			//Más adelante crearemos un metodo para hacer eso más fluido
-			IDbDataParameter dbDataParameter = dbCommand.CreateParameter ();
-			dbDataParameter.ParameterName = "nombre";
-			//TIENE QUE COINCIDIR EL VALOR CON EL PARAMETRO PARA QUE ENCUENTRE BIEN EL VALOR
-			dbDataParameter.Value = "categoria 4";
-			dbCommand.Parameters.Add (dbDataParameter);
-			dbCommand.ExecuteNonQuery ();
-
-			//mySqlConnection.CreateCommand ();
-			*/
-				Console.WriteLine ("Selecciona una opcion: ");
-				Console.WriteLine ("0. Salir " + "\n" + "1. Nuevo " + "\n" + "2. Editar " + "\n" + "3. Eliminar " + "\n" + "4. Listar todos " + "\n");
-
-				dbConnection.CreateCommand ();
-
 			do {
-				Console.WriteLine("Elige una opcion: ");
-			switch (Console.Read ()) {
-			case '0':
-				Console.Write ("Adios");
-					salir = true;
-				Environment.Exit (0);
-				break;
-			case '1':
-				Console.WriteLine ("Nuevo");
+			
+				Console.WriteLine ("\nSelecciona una opcion: \n");
+				Console.WriteLine ("0. Salir " + "\n" + "1. Nuevo " + "\n" + "2. Editar " + "\n" + "3. Eliminar " + "\n" + "4. Listar todos " + "\n");
+			
+				switch (Console.Read ()) {
+				case '0':
+					
+					Console.Write ("\nAdios");
+						salir = true;
+						Environment.Exit (0);
+					break;
 
-				
-					crearNuevo.CommandText = "insert into categoria (nombre) values (@nombre)";
+				case '1':
+					
+					Console.WriteLine ("\nNuevo");
 
-					//Creamos el parametro a insertar, creamos la tabla categoria 4 e insertamos el parametro en la tabla
-					//Más adelante crearemos un metodo para hacer eso más fluido
+					
+						crearNuevo.CommandText = "insert into categoria (nombre) values (@nombre)";
 
-					//TIENE QUE COINCIDIR EL VALOR CON EL PARAMETRO PARA QUE ENCUENTRE BIEN EL VALOR
-					Console.WriteLine("Dime el nombre de la fila nueva: ");
-					String filaNueva = Console.ReadLine();
+						//Creamos el parametro a insertar, creamos la tabla categoria 4 e insertamos el parametro en la tabla
+						//Más adelante crearemos un metodo para hacer eso más fluido
 
-					parametrosNombre("nombre", filaNueva,  crearNuevo, dataparametername);
-					crearNuevo.ExecuteNonQuery ();
-					Console.WriteLine("Nueva fila creada");
-					//Console.WriteLine("inserte otra opcion");
+						//TIENE QUE COINCIDIR EL VALOR CON EL PARAMETRO PARA QUE ENCUENTRE BIEN EL VALOR
+						Console.WriteLine("Dime el nombre de la fila nueva: ");
+						String filaNueva = Console.ReadLine();
 
-				break;
-			case '2':
-				Console.Write ("Editar");
+						parametrosNombre("nombre", filaNueva,  crearNuevo, dataparametername);
+						crearNuevo.ExecuteNonQuery ();
+						Console.WriteLine("Nueva fila creada");
+						//Console.WriteLine("inserte otra opcion");
 
-					IDbCommand editarID = dbConnection.CreateCommand();
-					editarID.CommandText = "update categoria set nombre = @nombre where id = @id";
+					break;
 
-					IDbDataParameter parametroEditado = editarID.CreateParameter();
-					parametroEditado.ParameterName = 
-					Console.WriteLine("Elige el id de la fila que quieras editar");
+				case '2':
+					visualizar(crearNuevo);
+						Console.Write ("Editar");
 
-					IDbDataParameter ;
-					parametroEditado.ParameterName = "";
-				break;
-			case '3':
-				Console.Write ("Eliminar");
-				break;
-			case '4':
-				Console.WriteLine ("Listar todos");
+						IDbCommand editarID = dbConnection.CreateCommand();
+						editarID.CommandText = "update categoria set nombre = @nombre where id = @id";
 
-					IDbCommand comandoListar = dbConnection.CreateCommand();
-					comandoListar.CommandText = "select * from categoria";
-					IDataReader dr = comandoListar.ExecuteReader();
+						Console.WriteLine("Elige el id de la fila que quieras editar");
+						sid = Console.ReadLine();
+						id = int.Parse(sid);
+						
+						Console.WriteLine("Elige el nombre de la fila que quieras editar");
+						String nombreNuevo = Console.ReadLine();
 
-					while (dr.Read()){
-						Console.WriteLine(Convert.ToString(dr["id"]));
-						Console.WriteLine(Convert.ToString(dr["nombre"]));
+					parametrosNombre("nombre", nombreNuevo, editarID, dataparametername);
+					parametrosId("id", id, editarID, dataparameterid);
+
+						editarID.ExecuteNonQuery();
+						
+						Console.WriteLine("Editado hecho ");
+						
+					break;
+
+				case '3':
+					
+						Console.Write ("Eliminar");
+
+						visualizar(crearNuevo);
+						
+						crearNuevo.CommandText = "delete from categoria where id = @id";
+
+						Console.WriteLine("Dime el id de la fila que quieras eliminar:");
+						sid = Console.ReadLine();
+						id = int.Parse(sid);
+						
+						parametrosId("id", id, crearNuevo, dataparameterid);
+						
+						crearNuevo.ExecuteNonQuery();
+						
+						Console.WriteLine("Fila eliminada");
+					
+						break;
+
+				case '4':
+					
+						Console.WriteLine ("Listar todos");
+						
+						visualizar(crearNuevo);
+						
+					
+						break;
 					}
-					dr.Close();
-				break;
-			}
+				
 			} while(salir !=  true);
 			dbConnection.Close ();
 
 		}
 
-		private static void parametrosNombre(String parametro, String valor, IDbCommand comand, IDbDataParameter dataparameternombre)
+		private static void parametrosNombre(String parametro, String valor, IDbCommand comand, IDataParameter dataparameternombre)
 		{
 			//Método para crear parametro para el Nombre, le decimos el nombre, el valor y lo añadimos.
 			dataparameternombre.ParameterName = parametro;
@@ -115,12 +126,27 @@ namespace PDbPrueba
 
 		}
 
-		private static void parametrosId(String parametro, int valor, IDbCommand comand, IDbDataParameter dataparameterid)
+		private static void parametrosId(String parametro, int valor, IDbCommand comand, IDataParameter dataparameterid)
 		{
 			//Método para crear parametro para el Id, le decimos el id, el valor y lo añadimos.
 			dataparameterid.ParameterName = parametro;
 			dataparameterid.Value = valor;
 			comand.Parameters.Add (dataparameterid);
+		}
+
+		private static void visualizar (IDbCommand comandoVisualizar)
+		{
+
+			comandoVisualizar.CommandText = "select * from categoria order by id";	
+			IDataReader dr = comandoVisualizar.ExecuteReader();
+
+			while (dr.Read()){
+				Console.WriteLine(Convert.ToString(dr["id"]));
+				Console.WriteLine(Convert.ToString(dr["nombre"]));
+			}
+
+			dr.Close();
+
 		}
 	}
 }
