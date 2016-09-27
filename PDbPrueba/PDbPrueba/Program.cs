@@ -25,6 +25,10 @@ namespace PDbPrueba
 
 			dbConnection.CreateCommand ();
 
+			//Podemos crear un public enum OPTION (SALIR, BORRAR, EDITAR...) 
+
+
+
 			do {
 			
 				Console.WriteLine ("\nSelecciona una opcion: \n");
