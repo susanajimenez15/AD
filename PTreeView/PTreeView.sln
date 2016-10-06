@@ -1,9 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTreeView", "PTreeView\PTreeView.csproj", "{F3BEB4A7-2456-48D2-A0BE-C2F8B7F36DA8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Org.institutoserpis.Ad", "Org.institutoserpis.Ad\Org.institutoserpis.Ad.csproj", "{C48C957F-E66C-4475-8DDC-E105FA9D7EB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTreeView", "PTreeView\PTreeView.csproj", "{0034FF72-F78B-486D-803D-5728F737E6B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +9,10 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C48C957F-E66C-4475-8DDC-E105FA9D7EB5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C48C957F-E66C-4475-8DDC-E105FA9D7EB5}.Debug|x86.Build.0 = Debug|Any CPU
-		{C48C957F-E66C-4475-8DDC-E105FA9D7EB5}.Release|x86.ActiveCfg = Release|Any CPU
-		{C48C957F-E66C-4475-8DDC-E105FA9D7EB5}.Release|x86.Build.0 = Release|Any CPU
-		{F3BEB4A7-2456-48D2-A0BE-C2F8B7F36DA8}.Debug|x86.ActiveCfg = Debug|x86
-		{F3BEB4A7-2456-48D2-A0BE-C2F8B7F36DA8}.Debug|x86.Build.0 = Debug|x86
-		{F3BEB4A7-2456-48D2-A0BE-C2F8B7F36DA8}.Release|x86.ActiveCfg = Release|x86
-		{F3BEB4A7-2456-48D2-A0BE-C2F8B7F36DA8}.Release|x86.Build.0 = Release|x86
+		{0034FF72-F78B-486D-803D-5728F737E6B3}.Debug|x86.ActiveCfg = Debug|x86
+		{0034FF72-F78B-486D-803D-5728F737E6B3}.Debug|x86.Build.0 = Debug|x86
+		{0034FF72-F78B-486D-803D-5728F737E6B3}.Release|x86.ActiveCfg = Release|x86
+		{0034FF72-F78B-486D-803D-5728F737E6B3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = PTreeView\PTreeView.csproj

@@ -6,7 +6,7 @@ public partial class MainWindow
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.Toolbar toolbar1;
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
-	private global::Gtk.TreeView treeview;
+	private global::Gtk.TreeView treeView;
 
 	protected virtual void Build ()
 	{
@@ -38,10 +38,10 @@ public partial class MainWindow
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
 		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
 		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-		this.treeview = new global::Gtk.TreeView ();
-		this.treeview.CanFocus = true;
-		this.treeview.Name = "treeview";
-		this.GtkScrolledWindow.Add (this.treeview);
+		this.treeView = new global::Gtk.TreeView ();
+		this.treeView.CanFocus = true;
+		this.treeView.Name = "treeView";
+		this.GtkScrolledWindow.Add (this.treeView);
 		this.vbox1.Add (this.GtkScrolledWindow);
 		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.GtkScrolledWindow]));
 		w4.Position = 1;
