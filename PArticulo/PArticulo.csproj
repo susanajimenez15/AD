@@ -79,7 +79,10 @@
     <Compile Include="Articulo.cs" />
     <Compile Include="ArticuloView.cs" />
     <Compile Include="gtk-gui\PArticulo.ArticuloView.cs" />
-    <Compile Include="App.cs" />
+    <Compile Include="ArticuloDao.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="CategoriaDao.cs" />
+    <Compile Include="IEntityDao.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

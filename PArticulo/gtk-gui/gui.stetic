@@ -165,7 +165,7 @@
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
-                  <widget class="Gtk.SpinButton" id="spinbuttonPrecio">
+                  <widget class="Gtk.SpinButton" id="spinButtonPrecio">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="Lower">-10000000</property>

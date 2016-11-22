@@ -2,10 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="../PArticulo/ArticuloView.cs">
     <Files>
-      <File FileName="../PArticulo/ArticuloView.cs" Line="15" Column="33" />
-      <File FileName="../PArticulo/MainWindow.cs" Line="22" Column="15" />
-      <File FileName="../PArticulo/App.cs" Line="14" Column="21" />
+      <File FileName="../PArticulo/ArticuloView.cs" Line="35" Column="22" />
+      <File FileName="../PArticulo/MainWindow.cs" Line="42" Column="52" />
       <File FileName="Org.InstitutoSerpis.Ad/Null.cs" Line="1" Column="1" />
+      <File FileName="../PArticulo/Articulo.cs" Line="22" Column="3" />
+      <File FileName="../PArticulo/ArticuloDao.cs" Line="59" Column="4" />
+      <File FileName="Org.InstitutoSerpis.Ad/EntityDao.cs" Line="1" Column="1" />
+      <File FileName="Org.InstitutoSerpis.Ad/DbCommandHelper.cs" Line="1" Column="1" />
+      <File FileName="Org.InstitutoSerpis.Ad/ComboBoxHelper.cs" Line="19" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

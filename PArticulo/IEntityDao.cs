@@ -1,9 +1,12 @@
 using System;
 
-namespace PArticulo
+using PArticulo;
+
+namespace Org.InstitutoSerpis.Ad
 {
-	public interface IEntityDao
+	public interface IEntityDao<TEntity>
 	{
+		TEntity Load(object id);
 	}
 }
 

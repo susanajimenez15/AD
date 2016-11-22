@@ -12,7 +12,7 @@ namespace PArticulo
 		private global::Gtk.ComboBox comboBoxCategoria;
 		private global::Gtk.Entry entryNombre;
 		private global::Gtk.HBox hbox2;
-		private global::Gtk.SpinButton spinbuttonPrecio;
+		private global::Gtk.SpinButton spinButtonPrecio;
 		private global::Gtk.Label label3;
 		private global::Gtk.Label Nombre;
 		private global::Gtk.Label Precio;
@@ -76,15 +76,15 @@ namespace PArticulo
 			this.hbox2.Name = "hbox2";
 			this.hbox2.Spacing = 6;
 			// Container child hbox2.Gtk.Box+BoxChild
-			this.spinbuttonPrecio = new global::Gtk.SpinButton (-10000000, 10000000, 1);
-			this.spinbuttonPrecio.CanFocus = true;
-			this.spinbuttonPrecio.Name = "spinbuttonPrecio";
-			this.spinbuttonPrecio.Adjustment.PageIncrement = 10;
-			this.spinbuttonPrecio.ClimbRate = 1;
-			this.spinbuttonPrecio.Digits = ((uint)(2));
-			this.spinbuttonPrecio.Numeric = true;
-			this.hbox2.Add (this.spinbuttonPrecio);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.spinbuttonPrecio]));
+			this.spinButtonPrecio = new global::Gtk.SpinButton (-10000000, 10000000, 1);
+			this.spinButtonPrecio.CanFocus = true;
+			this.spinButtonPrecio.Name = "spinButtonPrecio";
+			this.spinButtonPrecio.Adjustment.PageIncrement = 10;
+			this.spinButtonPrecio.ClimbRate = 1;
+			this.spinButtonPrecio.Digits = ((uint)(2));
+			this.spinButtonPrecio.Numeric = true;
+			this.hbox2.Add (this.spinButtonPrecio);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.spinButtonPrecio]));
 			w5.Position = 0;
 			w5.Expand = false;
 			w5.Fill = false;

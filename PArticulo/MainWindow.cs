@@ -1,7 +1,7 @@
 using Gtk;
 using System;
 using System.Data;
-using System.Collections.Generic;
+using System.Collections;
 using MySql.Data.MySqlClient;
 
 using PArticulo;
@@ -10,21 +10,21 @@ using Org.InstitutoSerpis.Ad;
 
 public partial class MainWindow: Gtk.Window
 {	
-	private IDbConnection dbConnection;
+	private IEntityDao<Articulo> entityDao;
 
+	//base: llama al antecesor de MainWindow
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
-//		Build ();
-//		//dbConnection = new MySqlConnection ( "Database=dbprueba; User Id= root; Password=sistemas" );
-//		App.Instance.DbConnection = new MySqlConnection {
-//			"Database=dbprueba; User Id= root; Password=sistemas"
-//		};
-//		App.Instance.DbConnection.Open ();
 		Build ();
 		App.Instance.DbConnection = new MySqlConnection (
 			"Database=dbprueba;User Id=root;Password=sistemas"
 			);
 		App.Instance.DbConnection.Open ();
+
+//		Porque no nos permite dejar el precio en blanco, hemos ejecutado esta sentencia SQL para que se pongan a 0 los null
+//		IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand ();
+//		dbCommand.CommandText = "update articulo set precio = 0 where precio is null";
+//		dbCommand.ExecuteNonQuery ();
 
 		fill ();
 
@@ -33,56 +33,54 @@ public partial class MainWindow: Gtk.Window
 			bool selected = treeView.Selection.CountSelectedRows () > 0;
 			editAction.Sensitive = selected;
 			deleteAction.Sensitive = selected;
-			//Console.WriteLine("Ha ocurrido el evento treeView.Selection.Changed selected={0}",selected);
+		
 		};
 
 
 		newAction.Activated += delegate {
-			new ArticuloView();
+			Articulo articulo = new Articulo();
+			articulo.Nombre = string.Empty; //los entry esperan que no sea null
+			articulo.Precio = 0; //Hasta que se permita null
+
+			new ArticuloView(articulo);
 		};
 
+		editAction.Activated += delegate {
+			Articulo articulo = entityDao.Load((long)TreeViewHelper.GetId(treeView));
+			new ArticuloView(articulo);
+		};
 
+		
+		deleteAction.Activated += delegate {
+			if (WindowHelper.Confirm(this, "¿Quieres eliminarrrrrr el registro?"))
+				ArticuloDao.Delete(TreeViewHelper.GetId(treeView));
+
+
+		};
 
 		refresh.Activated += delegate {
 			fill ();
 
 		};
 
-		new ArticuloView ();
 
+	}
+
+	public IEntityDao<Articulo> EntityDao {
+		set { entityDao = value; }
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
-		dbConnection.Close ();
+		App.Instance.DbConnection.Close ();
 		Application.Quit ();
 		a.RetVal = true;
 	}
 
-	protected void fill()
-	{
-
-		List<Articulo> list = new List<Articulo> ();
-		string selectSql = "select * from articulo";
-		IDbCommand dbCommand = dbConnection.CreateCommand ();
-		dbCommand.CommandText = selectSql;
-		IDataReader dataReader = dbCommand.ExecuteReader ();
-			while (dataReader.Read ()) {
-				long id = (long)dataReader ["id"];
-				string nombre = (string)dataReader ["nombre"];
-				//Ponemos ? para un tipo de datos más abstrcto.
-				decimal? precio = dataReader ["precio"] is DBNull ? null : (decimal?)dataReader ["precio"];
-				long? categoria = dataReader["categoria"] is DBNull ? null : (long?)dataReader["categoria"];
-				Articulo articulo = new Articulo(id, nombre, precio, categoria);
-				list.Add (articulo);
-			}
-
-		dataReader.Close ();
-
-		//Para dejar no clickable el boton de edit y delete
+	private void fill() {
 		editAction.Sensitive = false;
 		deleteAction.Sensitive = false;
-
+		IList list = EntityDao.GetList<Articulo> ();
 		TreeViewHelper.Fill (treeView, list);
 	}
 
