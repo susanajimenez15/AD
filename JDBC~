@@ -1,0 +1,6 @@
+JDBC - Java Database Connectivity (JDBC)
+Driver - Tipo 4
+Programa
+	- Connection	
+	- Statement statement = conecction.createStatement() - (varios tipos)
+	- ResultSet resulSet = statement.executeQuery(query) - resulSet = metainformacion (los tipos, numeros y nombres de fila)
