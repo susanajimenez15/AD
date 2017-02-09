@@ -24,6 +24,12 @@ public class Hibernate {
 		Cliente susana = new Cliente();
 		susana.setName("Susana");
 		entityManager.persist(susana);
+		
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		
+		entityManagerFactory.close();
+		
 //		
 //		// Creamos un pedido
 //		Pedido pedido = new Pedido();
@@ -34,10 +40,7 @@ public class Hibernate {
 //		
 //		// Creamos pedidoLinea
 //		
-		entityManager.getTransaction().commit();
-		entityManager.close();
-		
-		entityManagerFactory.close();
+
 	
 	
 	}
