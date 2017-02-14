@@ -49,7 +49,7 @@ public class Hibernate {
 						System.out.println("4. Pedido");
 						System.out.println("5. Pedido linea");
 						System.out.println("O. Volver");
-						System.out.println("Elige una opción, por favor: ");
+						System.out.print("Elige una opción, por favor: ");
 						opcion1 = scanner.nextInt();
 						System.out.println("---------------------------------------------");
 						
@@ -58,42 +58,42 @@ public class Hibernate {
 							break;
 
 						case 1:
-							System.out.println("--- Categoria nueva ---");
-							System.out.println("Escribe un nombre: ");
+							System.out.print("--- Categoria nueva ---");
+							System.out.print("Escribe un nombre: ");
 							String nombre = scanner.next();
 							SQLHelper.insert_categoria(entityManagerFactory, nombre);
 							
 						case 2:
-							System.out.println("--- Articulo nuevo ---");
-							System.out.println("Escribe un articulo: ");
+							System.out.print("--- Articulo nuevo ---");
+							System.out.print("Escribe un articulo: ");
 							String nombrearticulo = scanner.next();
-							System.out.println("Escribe un precio: " );
+							System.out.print("Escribe un precio: " );
 							String precioart = scanner.next();
-							System.out.println("Elige ID de una Categoria: ");
+							System.out.print("Elige ID de una Categoria: ");
 							String idcategoria = scanner.next();
 							SQLHelper.insert_articulo(entityManagerFactory, nombrearticulo, precioart, idcategoria);
 							
 						case 3:
-							System.out.println("--- Cliente nuevo ---");
-							System.out.println("Nombre del cliente: ");
+							System.out.print("--- Cliente nuevo ---");
+							System.out.print("Nombre del cliente: ");
 							String nombrecliente = scanner.next();
 							SQLHelper.insert_cliente(entityManagerFactory, nombrecliente);
 							
 						case 4:
-							System.out.println("--- Pedido nuevo ---");
-							System.out.println("ID del cliente: ");
+							System.out.print("--- Pedido nuevo ---");
+							System.out.print("ID del cliente: ");
 							String idcliente = scanner.next();
-							System.out.println("Precio: ");
+							System.out.print("Precio: ");
 							String precio = scanner.next();
 							SQLHelper.insert_pedido(entityManagerFactory, idcliente, precio);
 							
 						case 5:
-							System.out.println("--- Pedido Linea nuevo ---");
-							System.out.println("ID del pedido: ");
+							System.out.print("--- Pedido Linea nuevo ---");
+							System.out.print("ID del pedido: ");
 							String pedidoid = scanner.next();
-							System.out.println("ID del articulo: ");
+							System.out.print("ID del articulo: ");
 							String articuloid = scanner.next();
-							System.out.println("Unidades: ");
+							System.out.print("Unidades: ");
 							String unid = scanner.next();
 							SQLHelper.insert_pedidoLinea(entityManagerFactory, pedidoid, articuloid, unid);
 						}
@@ -110,7 +110,7 @@ public class Hibernate {
 						System.out.println("4. Pedido");
 						System.out.println("5. Pedido linea");
 						System.out.println("O. Volver");
-						System.out.println("Elige una opción, por favor: ");
+						System.out.print("Elige una opción, por favor: ");
 						opcion2 = scanner.nextInt();
 						System.out.println("----------------------------------------------");
 						
@@ -119,10 +119,10 @@ public class Hibernate {
 							break;
 
 						case 1:
-							System.out.println("--- Modificar Categoria ---");
-							System.out.println("ID de la categoria a cambiar: ");
+							System.out.print("--- Modificar Categoria ---");
+							System.out.print("ID de la categoria a cambiar: ");
 							String nidcateogria = scanner.next();
-							System.out.println("Nuevo nombre de la categoria: ");
+							System.out.print("Nuevo nombre de la categoria: ");
 							String nncategoria = scanner.next();
 							SQLHelper.update_categoria(entityManagerFactory, nidcateogria, nncategoria);
 						}
@@ -141,7 +141,7 @@ public class Hibernate {
 						System.out.println("4. Pedido");
 						System.out.println("5. Pedido linea");
 						System.out.println("O. Volver");
-						System.out.println("Elige una opción, por favor: ");
+						System.out.print("Elige una opción, por favor: ");
 						opcion4 = scanner.nextInt();
 						System.out.println("----------------------------------------------");
 						
@@ -150,7 +150,7 @@ public class Hibernate {
 							break;
 
 						case 1:
-							System.out.println("Inserte ID de la categoria: ");
+							System.out.print("Inserte ID de la categoria: ");
 							String id = scanner.next();
 							SQLHelper.select_categoria(entityManagerFactory, id);
 						}
@@ -168,7 +168,7 @@ public class Hibernate {
 						System.out.println("4. Pedido");
 						System.out.println("5. Pedido linea");
 						System.out.println("O. Volver");
-						System.out.println("Elige una opción, por favor: ");
+						System.out.print("Elige una opción, por favor: ");
 						opcion5 = scanner.nextInt();
 						System.out.println("----------------------------------------------");
 						

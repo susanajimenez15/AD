@@ -6,20 +6,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Cliente {
-	
+public class Categoria {
+
 	private long id;
 	private String nombre;
 	
-	public Cliente() {}
-	
+	public Categoria () {}
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public long getId() {
 		return id;
 	}
-	public void setId(long id){
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getNombre() {
